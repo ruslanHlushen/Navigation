@@ -29,14 +29,20 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     @Override
-    public void startFragment(String nameFragment, Object data) {
+    public void startFragment(String nameFragment, Object data, boolean useAddTransaction) {
 
         Fragment mainFragment = createFragment(nameFragment, data);
 
         if (mainFragment != null) {
 
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
-                                                                     .add(mainFrameLayoutId, mainFragment);
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            if (useAddTransaction) {
+                fragmentTransaction.add(mainFrameLayoutId, mainFragment);
+            } else {
+                fragmentTransaction.replace(mainFrameLayoutId, mainFragment);
+            }
+                                                                     
             fragmentTransaction.addToBackStack(nameFragment);
             fragmentTransaction.commit();
         }
@@ -44,26 +50,26 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     @Override
-    public void startFragmentWithBackStackPosition(String nameFragment, int position, Object data) {
+    public void startFragmentWithBackStackPosition(String nameFragment, int position, Object data, boolean useAddTransaction) {
 
         for (int i = fragmentManager.getBackStackEntryCount() - 1; i >= position; i--) {
 
             fragmentManager.popBackStack();
         }
 
-        startFragment(nameFragment, data);
+        startFragment(nameFragment, data, useAddTransaction);
     }
 
 
     @Override
-    public void changeOnlyCurrentFragment(String nameFragment, Object data) {
+    public void changeOnlyCurrentFragment(String nameFragment, Object data, boolean useAddTransaction) {
 
         if (fragmentManager.getBackStackEntryCount() > 0) {
 
             fragmentManager.popBackStack();
         }
 
-        startFragment(nameFragment, data);
+        startFragment(nameFragment, data, useAddTransaction);
     }
 
 

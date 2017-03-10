@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         navigationManager = navigationDependence.getINavigationManager();
 
-        navigationManager.startFragment(FragmentA.TAG, null);
+        navigationManager.startFragment(FragmentA.TAG, null, true);
     }
 
 

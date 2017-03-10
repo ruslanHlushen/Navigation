@@ -66,7 +66,7 @@ public class FragmentC extends Fragment implements IOnFragmentResult {
         textView.setOnClickListener(v -> {
 
             iMessagesManager.showMessage("message");
-            iNavigationManager.startFragment(FragmentD.TAG, null);
+            iNavigationManager.startFragment(FragmentD.TAG, null, true);
         });
     }
 

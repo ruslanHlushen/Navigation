@@ -19,13 +19,13 @@ public class NavigationDependence {
 
         iNavigationManager = new INavigationManager() {
             @Override
-            public void startFragment(String nameFragment, Object data) { }
+            public void startFragment(String nameFragment, Object data, boolean useAddTransaction) { }
 
             @Override
-            public void startFragmentWithBackStackPosition(String nameFragment, int position, Object data) { }
+            public void startFragmentWithBackStackPosition(String nameFragment, int position, Object data, boolean useAddTransaction) { }
 
             @Override
-            public void changeOnlyCurrentFragment(String nameFragment, Object data) { }
+            public void changeOnlyCurrentFragment(String nameFragment, Object data, boolean useAddTransaction) { }
 
             @Override
             public void returnToPreviousFragment() { }

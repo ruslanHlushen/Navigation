@@ -62,7 +62,7 @@ public class FragmentB extends Fragment implements IOnFragmentResult {
 
     private void setOnClickListeners() {
 
-        textView.setOnClickListener(v -> iNavigationManager.changeOnlyCurrentFragment(FragmentC.TAG, null));
+        textView.setOnClickListener(v -> iNavigationManager.changeOnlyCurrentFragment(FragmentC.TAG, null, true));
     }
 
     @Override
