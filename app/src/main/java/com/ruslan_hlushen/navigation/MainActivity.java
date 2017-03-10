@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         NavigationApplication.getAppComponent().inject(this);
 
-        navigationDependence.setNavigationManager(initNavigationManager());
-        navigationDependence.setMessagesManager(initMessagesManager());
+        navigationDependence.setManagers(initNavigationManager(), initMessagesManager());
 
         navigationManager = navigationDependence.getINavigationManager();
 

@@ -66,6 +66,11 @@ public class NavigationDependence {
     }
 
 
+    public void setManagers(INavigationManager iNavigationManager, IMessagesManager iMessagesManager) {
+        this.iNavigationManager = iNavigationManager;
+        this.iMessagesManager = iMessagesManager;
+    }
+
     public INavigationManager getINavigationManager() {
         return iNavigationManager;
     }
