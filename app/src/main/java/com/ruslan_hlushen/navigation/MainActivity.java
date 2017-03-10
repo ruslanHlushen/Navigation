@@ -5,15 +5,15 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.ruslan_hlushen.androidappnavigation.NavigationDependence;
+import com.ruslan_hlushen.androidappnavigation.messages_manager.MessagesManager;
+import com.ruslan_hlushen.androidappnavigation.navigation_manager.INavigationManager;
+import com.ruslan_hlushen.androidappnavigation.navigation_manager.NavigationManager;
 import com.ruslan_hlushen.navigation.fragments.FragmentA;
 import com.ruslan_hlushen.navigation.fragments.FragmentB;
 import com.ruslan_hlushen.navigation.fragments.FragmentC;
 import com.ruslan_hlushen.navigation.fragments.FragmentD;
 import com.ruslan_hlushen.navigation.fragments.FragmentF;
-import com.ruslan_hlushen.navigation.navigation.NavigationDependence;
-import com.ruslan_hlushen.navigation.navigation.messages_manager.MessagesManager;
-import com.ruslan_hlushen.navigation.navigation.navigation_manager.INavigationManager;
-import com.ruslan_hlushen.navigation.navigation.navigation_manager.NavigationManager;
 
 import javax.inject.Inject;
 

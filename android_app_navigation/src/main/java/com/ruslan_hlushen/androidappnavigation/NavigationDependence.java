@@ -1,9 +1,9 @@
-package com.ruslan_hlushen.navigation.navigation;
+package com.ruslan_hlushen.androidappnavigation;
 
 import android.support.annotation.StringRes;
 
-import com.ruslan_hlushen.navigation.navigation.messages_manager.IMessagesManager;
-import com.ruslan_hlushen.navigation.navigation.navigation_manager.INavigationManager;
+import com.ruslan_hlushen.androidappnavigation.messages_manager.IMessagesManager;
+import com.ruslan_hlushen.androidappnavigation.navigation_manager.INavigationManager;
 
 /**
  * Created by Ruslan on 05.03.2017.

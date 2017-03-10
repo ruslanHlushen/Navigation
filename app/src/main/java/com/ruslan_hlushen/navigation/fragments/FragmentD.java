@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.ruslan_hlushen.androidappnavigation.navigation_manager.INavigationManager;
 import com.ruslan_hlushen.navigation.NavigationApplication;
 import com.ruslan_hlushen.navigation.R;
-import com.ruslan_hlushen.navigation.navigation.navigation_manager.INavigationManager;
 
 import javax.inject.Inject;
 

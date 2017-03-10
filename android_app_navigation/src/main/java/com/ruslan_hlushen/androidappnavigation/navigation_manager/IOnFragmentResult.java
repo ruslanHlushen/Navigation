@@ -1,4 +1,4 @@
-package com.ruslan_hlushen.navigation.navigation.navigation_manager;
+package com.ruslan_hlushen.androidappnavigation.navigation_manager;
 
 public interface IOnFragmentResult {
 

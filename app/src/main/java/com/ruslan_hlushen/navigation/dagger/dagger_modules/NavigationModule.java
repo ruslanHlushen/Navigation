@@ -2,9 +2,9 @@ package com.ruslan_hlushen.navigation.dagger.dagger_modules;
 
 import android.support.annotation.NonNull;
 
-import com.ruslan_hlushen.navigation.navigation.NavigationDependence;
-import com.ruslan_hlushen.navigation.navigation.messages_manager.IMessagesManager;
-import com.ruslan_hlushen.navigation.navigation.navigation_manager.INavigationManager;
+import com.ruslan_hlushen.androidappnavigation.NavigationDependence;
+import com.ruslan_hlushen.androidappnavigation.messages_manager.IMessagesManager;
+import com.ruslan_hlushen.androidappnavigation.navigation_manager.INavigationManager;
 
 import dagger.Module;
 import dagger.Provides;

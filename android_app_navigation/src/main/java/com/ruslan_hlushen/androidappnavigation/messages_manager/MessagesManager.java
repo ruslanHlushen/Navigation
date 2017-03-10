@@ -1,4 +1,4 @@
-package com.ruslan_hlushen.navigation.navigation.messages_manager;
+package com.ruslan_hlushen.androidappnavigation.messages_manager;
 
 import android.content.Context;
 import android.support.annotation.StringRes;
