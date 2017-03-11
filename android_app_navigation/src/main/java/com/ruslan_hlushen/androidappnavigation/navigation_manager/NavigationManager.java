@@ -29,9 +29,9 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     @Override
-    public void startFragment(String nameFragment, Object data, boolean useAddTransaction) {
+    public void startFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction) {
 
-        Fragment mainFragment = createFragment(nameFragment, data);
+        Fragment mainFragment = createFragment(fragmentNameForBackStack, data);
 
         if (mainFragment != null) {
 
@@ -42,34 +42,37 @@ abstract public class NavigationManager implements INavigationManager {
             } else {
                 fragmentTransaction.replace(mainFrameLayoutId, mainFragment);
             }
-                                                                     
-            fragmentTransaction.addToBackStack(nameFragment);
+
+            fragmentTransaction.addToBackStack(fragmentNameForBackStack);
             fragmentTransaction.commit();
         }
     }
 
 
     @Override
-    public void startFragmentWithBackStackPosition(String nameFragment, int position, Object data, boolean useAddTransaction) {
+    public void startFragmentWithBackStackPosition(String fragmentNameForBackStack,
+                                                   int position,
+                                                   Object data,
+                                                   boolean useAddTransaction) {
 
         for (int i = fragmentManager.getBackStackEntryCount() - 1; i >= position; i--) {
 
             fragmentManager.popBackStack();
         }
 
-        startFragment(nameFragment, data, useAddTransaction);
+        startFragment(fragmentNameForBackStack, data, useAddTransaction);
     }
 
 
     @Override
-    public void changeOnlyCurrentFragment(String nameFragment, Object data, boolean useAddTransaction) {
+    public void changeOnlyCurrentFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction) {
 
         if (fragmentManager.getBackStackEntryCount() > 0) {
 
             fragmentManager.popBackStack();
         }
 
-        startFragment(nameFragment, data, useAddTransaction);
+        startFragment(fragmentNameForBackStack, data, useAddTransaction);
     }
 
 
@@ -88,13 +91,13 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     @Override
-    public void returnToFragment(String nameFragment) {
+    public void returnToFragment(String fragmentNameForBackStack) {
 
         for (int i = fragmentManager.getBackStackEntryCount() - 1; i >= 0; i--) {
 
-            if (nameFragment.equals(fragmentManager.getBackStackEntryAt(i).getName())) {
+            if (fragmentNameForBackStack.equals(fragmentManager.getBackStackEntryAt(i).getName())) {
 
-                fragmentManager.popBackStackImmediate(nameFragment, 0);
+                fragmentManager.popBackStackImmediate(fragmentNameForBackStack, 0);
                 break;
             }
         }
@@ -104,14 +107,14 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     @Override
-    public void returnToFragmentWithResult(String nameFragment, Object data) {
+    public void returnToFragmentWithResult(String fragmentNameForBackStack, Object data) {
 
-        returnToFragment(nameFragment);
+        returnToFragment(fragmentNameForBackStack);
         ((IOnFragmentResult) fragmentManager.findFragmentById(mainFrameLayoutId)).onFragmentResult(data);
     }
 
 
-    abstract public Fragment createFragment(String screenKey, Object data);
+    abstract public Fragment createFragment(String fragmentNameForBackStack, Object data);
 
 
     @Override
@@ -135,8 +138,8 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     @Override
-    public boolean isFragmentCurrent(String nameFragment) {
+    public boolean isFragmentCurrent(String fragmentNameForBackStack) {
 
-        return nameFragment.equals(getCurrentFragmentBackStackName());
+        return fragmentNameForBackStack.equals(getCurrentFragmentBackStackName());
     }
 }

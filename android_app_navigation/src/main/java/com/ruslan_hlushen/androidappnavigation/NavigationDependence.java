@@ -21,22 +21,25 @@ public class NavigationDependence {
 
         iNavigationManager = new INavigationManager() {
             @Override
-            public void startFragment(String nameFragment, Object data, boolean useAddTransaction) { }
+            public void startFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction) { }
 
             @Override
-            public void startFragmentWithBackStackPosition(String nameFragment, int position, Object data, boolean useAddTransaction) { }
+            public void startFragmentWithBackStackPosition(String fragmentNameForBackStack,
+                                                           int position,
+                                                           Object data,
+                                                           boolean useAddTransaction) { }
 
             @Override
-            public void changeOnlyCurrentFragment(String nameFragment, Object data, boolean useAddTransaction) { }
+            public void changeOnlyCurrentFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction) { }
 
             @Override
             public void returnToPreviousFragment() { }
 
             @Override
-            public void returnToFragment(String nameFragment) { }
+            public void returnToFragment(String fragmentNameForBackStack) { }
 
             @Override
-            public void returnToFragmentWithResult(String nameFragment, Object data) { }
+            public void returnToFragmentWithResult(String fragmentNameForBackStack, Object data) { }
 
             @Override
             public void onExit() { }
@@ -52,7 +55,7 @@ public class NavigationDependence {
             }
 
             @Override
-            public boolean isFragmentCurrent(String nameFragment) {
+            public boolean isFragmentCurrent(String fragmentNameForBackStack) {
                 return false;
             }
         };

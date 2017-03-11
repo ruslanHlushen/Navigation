@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
 
             @Override
-            public Fragment createFragment(String screenKey, Object data) {
+            public Fragment createFragment(String fragmentNameForBackStack, Object data) {
 
-                switch (screenKey) {
+                switch (fragmentNameForBackStack) {
 
                     case FragmentA.TAG: {
                         return new FragmentA();
