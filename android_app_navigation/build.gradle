@@ -29,3 +29,13 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.2.0'
     testCompile 'junit:junit:4.12'
 }
+
+apply plugin: 'com.novoda.bintray-release'
+publish {
+    userOrg = 'ruslanhlushen0808'
+    groupId = 'com.github.ruslanHlushen'
+    artifactId = 'android_app_navigation'
+    publishVersion = '0.0.1'
+    desc = 'Library for better android navigation in app with fagments.'
+    website = 'https://github.com/ruslanHlushen/Navigation'
+}
