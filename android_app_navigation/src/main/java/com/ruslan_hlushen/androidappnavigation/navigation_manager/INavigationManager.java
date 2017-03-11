@@ -1,8 +1,6 @@
 package com.ruslan_hlushen.androidappnavigation.navigation_manager;
 
-import android.support.v4.app.Fragment;
-
-public interface INavigationManager {
+public interface INavigationManager extends IFragmentInfoManager {
 
     void startFragment(String nameFragment, Object data, boolean useAddTransaction);
 
@@ -17,11 +15,4 @@ public interface INavigationManager {
     void returnToFragmentWithResult(String nameFragment, Object data);
 
     void onExit();
-
-
-    Fragment getCurrentFragment();
-
-    String getCurrentFragmentBackStackName();
-
-    boolean isFragmentCurrent(String nameFragment);
 }
