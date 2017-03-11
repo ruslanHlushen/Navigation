@@ -1,6 +1,8 @@
 package com.ruslan_hlushen.androidappnavigation;
 
+
 import android.support.annotation.StringRes;
+import android.support.v4.app.Fragment;
 
 import com.ruslan_hlushen.androidappnavigation.messages_manager.IMessagesManager;
 import com.ruslan_hlushen.androidappnavigation.navigation_manager.INavigationManager;
@@ -38,6 +40,21 @@ public class NavigationDependence {
 
             @Override
             public void onExit() { }
+
+            @Override
+            public Fragment getCurrentFragment() {
+                return null;
+            }
+
+            @Override
+            public String getCurrentFragmentBackStackName() {
+                return null;
+            }
+
+            @Override
+            public boolean isFragmentCurrent(String nameFragment) {
+                return false;
+            }
         };
 
         iMessagesManager = new IMessagesManager() {

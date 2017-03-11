@@ -112,4 +112,31 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     abstract public Fragment createFragment(String screenKey, Object data);
+
+
+    @Override
+    public Fragment getCurrentFragment() {
+
+        return fragmentManager.findFragmentById(mainFrameLayoutId);
+    }
+
+
+    @Override
+    public String getCurrentFragmentBackStackName() {
+
+        int backStackEntryCount = fragmentManager.getBackStackEntryCount();
+
+        if (backStackEntryCount > 0) {
+            return fragmentManager.getBackStackEntryAt(backStackEntryCount - 1).getName();
+        } else {
+            return null;
+        }
+    }
+
+
+    @Override
+    public boolean isFragmentCurrent(String nameFragment) {
+
+        return nameFragment.equals(getCurrentFragmentBackStackName());
+    }
 }
