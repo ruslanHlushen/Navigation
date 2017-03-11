@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     NavigationDependence navigationDependence;
 
-    INavigationManager navigationManager;
+    INavigationManager iNavigationManager;
 
 
     @Override
@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
         navigationDependence.setManagers(initNavigationManager(), initMessagesManager());
 
-        navigationManager = navigationDependence.getINavigationManager();
+        iNavigationManager = navigationDependence.getINavigationManager();
 
-        navigationManager.startFragment(FragmentA.TAG, null, true);
+        iNavigationManager.startFragment(FragmentA.TAG, null, true);
     }
 
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
             super.onBackPressed();
         } else {
-            navigationManager.onExit();
+            iNavigationManager.onExit();
         }
     }
 
