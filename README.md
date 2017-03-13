@@ -17,7 +17,7 @@ String fragmentNameForBackStack - some tag to get fragment from backStack;
 Object data - some data to fragment (you can use newInstance(data) cast data to bundle and setArguments()); 
 boolean useAddTransaction - if true - will be use add methdod of FragmentTransaction, but if false - replace. ;
 
-Methods:
+<h2>Methods:</h2>
  Add new fragment
 <h2>void startFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction);</h2>
 
