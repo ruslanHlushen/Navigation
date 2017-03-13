@@ -21,7 +21,7 @@ Methods:
 // Add new fragment
 startFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction);
 
-// Rdd many fragments if useAddTransaction = true, then onCreate(),onCreateView(),onViewCreated() of all fragment will be called in //course, if useAddTransaction = false only onCreate() of all fragment will be called in course, and onCreateView(),onViewCreated() only //of last fragment.
+// Add many fragments if useAddTransaction = true, then onCreate(),onCreateView(),onViewCreated() of all fragment will be called in //course, if useAddTransaction = false only onCreate() of all fragment will be called in course, and onCreateView(),onViewCreated() only //of last fragment.
 //All fragments will be added to backStack, so onBackPressed() you return to previous.
 void startFragmentWithBackStack(List<DataModel> dataModelList, boolean useAddTransaction);
 
