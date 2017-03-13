@@ -6,6 +6,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Ruslan on 01.03.2017.
  */
@@ -58,6 +61,98 @@ abstract public class NavigationManager implements INavigationManager {
         for (int i = fragmentManager.getBackStackEntryCount() - 1; i >= position; i--) {
 
             fragmentManager.popBackStack();
+        }
+
+        startFragment(fragmentNameForBackStack, data, useAddTransaction);
+    }
+
+
+    @Override
+    public void startFragmentWithBackStack(Object data, boolean useAddTransaction, String... fragmentNamesForBackStack) {
+
+        List<Fragment> fL = new ArrayList<>();
+        for (int i = 0; i < fragmentNamesForBackStack.length; i++) {
+
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            Fragment mainFragment = createFragment(fragmentNamesForBackStack[i], data);
+            fL.add(mainFragment);
+
+            if (mainFragment != null) {
+
+                if (!useAddTransaction && (i > 0)) {
+                    fragmentTransaction.remove(fragmentManager.findFragmentById(mainFrameLayoutId));
+                }
+
+                fragmentTransaction.add(mainFrameLayoutId, mainFragment);
+                fragmentTransaction.addToBackStack(fragmentNamesForBackStack[i]);
+                fragmentTransaction.commit();
+
+                if (!useAddTransaction) {
+                    fragmentManager.executePendingTransactions();
+                }
+            }
+        }
+    }
+
+
+    @Override
+    public void startFragmentAfter(String fragmentNameForBackStack,
+                                   String fragmentNameToSetAfter,
+                                   boolean clearBackStackIfWouldntFind,
+                                   Object data,
+                                   boolean useAddTransaction) {
+
+        boolean wasFind = false;
+
+        for (int i = fragmentManager.getBackStackEntryCount() - 1; i >= 0; i--) {
+
+            if (fragmentNameToSetAfter.equals(fragmentManager.getBackStackEntryAt(i).getName())) {
+
+                fragmentManager.popBackStack(fragmentNameToSetAfter, 0);
+                wasFind = true;
+                break;
+            }
+        }
+
+        if (clearBackStackIfWouldntFind && (!wasFind)) {
+
+            for (int j = 0; j < fragmentManager.getBackStackEntryCount(); j++) {
+                fragmentManager.popBackStack();
+            }
+        }
+
+        startFragment(fragmentNameForBackStack, data, useAddTransaction);
+    }
+
+
+    @Override
+    public void startFragmentBefore(String fragmentNameForBackStack,
+                                    String fragmentNameToSetBefore,
+                                    boolean clearBackStackIfWouldntFind,
+                                    Object data,
+                                    boolean useAddTransaction) {
+
+        boolean wasFind = false;
+
+        for (int i = fragmentManager.getBackStackEntryCount() - 1; i >= 0; i--) {
+
+            if (fragmentNameToSetBefore.equals(fragmentManager.getBackStackEntryAt(i).getName())) {
+
+                if (i - 1 >= 0) {
+                    String fragmentNameToSetAfter = fragmentManager.getBackStackEntryAt(i - 1).getName();
+                    fragmentManager.popBackStack(fragmentNameToSetAfter, 0);
+                    wasFind = true;
+                }
+
+                break;
+            }
+        }
+
+        if (clearBackStackIfWouldntFind && (!wasFind)) {
+
+            for (int j = 0; j < fragmentManager.getBackStackEntryCount(); j++) {
+                fragmentManager.popBackStack();
+            }
         }
 
         startFragment(fragmentNameForBackStack, data, useAddTransaction);

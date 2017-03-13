@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         iNavigationManager = navigationDependence.getINavigationManager();
 
-        iNavigationManager.startFragment(FragmentA.TAG, null, true);
+        iNavigationManager.startFragmentWithBackStack(null, true, FragmentA.TAG, FragmentB.TAG, FragmentC.TAG);
     }
 
 

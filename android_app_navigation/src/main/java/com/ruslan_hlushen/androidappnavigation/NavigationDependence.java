@@ -24,10 +24,27 @@ public class NavigationDependence {
             public void startFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction) { }
 
             @Override
+            public void startFragmentWithBackStack(Object data, boolean useAddTransaction, String... fragmentNamesForBackStack) { }
+
+            @Override
             public void startFragmentWithBackStackPosition(String fragmentNameForBackStack,
                                                            int position,
                                                            Object data,
                                                            boolean useAddTransaction) { }
+
+            @Override
+            public void startFragmentAfter(String fragmentNameForBackStack,
+                                           String fragmentNameToSetAfter,
+                                           boolean clearBackStackIfWouldntFind,
+                                           Object data,
+                                           boolean useAddTransaction) { }
+
+            @Override
+            public void startFragmentBefore(String fragmentNameForBackStack,
+                                            String fragmentNameToSetBefore,
+                                            boolean clearBackStackIfWouldntFind,
+                                            Object data,
+                                            boolean useAddTransaction) { }
 
             @Override
             public void changeOnlyCurrentFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction) { }
