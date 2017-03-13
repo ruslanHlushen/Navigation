@@ -42,11 +42,11 @@ public class NavigationDependence {
                                                  boolean useAddTransaction) { }
 
             @Override
-            public void startFragmentAndSetBefore(String fragmentNameForBackStack,
-                                                  String fragmentNameToSetBefore,
-                                                  boolean clearBackStackIfWouldntFind,
-                                                  Object data,
-                                                  boolean useAddTransaction) { }
+            public void startFragmentAndSetInstead(String fragmentNameForBackStack,
+                                                   String fragmentNameToSetBefore,
+                                                   boolean clearBackStackIfWouldntFind,
+                                                   Object data,
+                                                   boolean useAddTransaction) { }
 
             @Override
             public void changeOnlyCurrentFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction) { }

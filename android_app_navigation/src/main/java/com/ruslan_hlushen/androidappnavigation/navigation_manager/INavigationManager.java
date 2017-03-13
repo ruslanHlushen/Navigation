@@ -18,11 +18,11 @@ public interface INavigationManager extends IFragmentInfoManager {
                                   Object data,
                                   boolean useAddTransaction);
 
-    void startFragmentAndSetBefore(String fragmentNameForBackStack,
-                                   String fragmentNameToSetBefore,
-                                   boolean clearBackStackIfWouldntFind,
-                                   Object data,
-                                   boolean useAddTransaction);
+    void startFragmentAndSetInstead(String fragmentNameForBackStack,
+                                    String fragmentNameToSetInstead,
+                                    boolean clearBackStackIfWouldntFind,
+                                    Object data,
+                                    boolean useAddTransaction);
 
     void changeOnlyCurrentFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction);
 

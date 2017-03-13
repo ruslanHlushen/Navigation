@@ -127,17 +127,17 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     @Override
-    public void startFragmentAndSetBefore(String fragmentNameForBackStack,
-                                          String fragmentNameToSetBefore,
-                                          boolean clearBackStackIfWouldntFind,
-                                          Object data,
-                                          boolean useAddTransaction) {
+    public void startFragmentAndSetInstead(String fragmentNameForBackStack,
+                                           String fragmentNameToSetInstead,
+                                           boolean clearBackStackIfWouldntFind,
+                                           Object data,
+                                           boolean useAddTransaction) {
 
         boolean wasFind = false;
 
         for (int i = fragmentManager.getBackStackEntryCount() - 1; i >= 0; i--) {
 
-            if (fragmentNameToSetBefore.equals(fragmentManager.getBackStackEntryAt(i).getName())) {
+            if (fragmentNameToSetInstead.equals(fragmentManager.getBackStackEntryAt(i).getName())) {
 
                 if (i - 1 >= 0) {
                     String fragmentNameToSetAfter = fragmentManager.getBackStackEntryAt(i - 1).getName();
