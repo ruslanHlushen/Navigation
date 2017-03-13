@@ -6,7 +6,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-import java.util.ArrayList;
+import com.ruslan_hlushen.androidappnavigation.DataModel;
+
 import java.util.List;
 
 /**
@@ -68,14 +69,14 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     @Override
-    public void startFragmentWithBackStack(Object data, boolean useAddTransaction, String... fragmentNamesForBackStack) {
+    public void startFragmentWithBackStack(List<DataModel> dataModelList, boolean useAddTransaction) {
 
-        List<Fragment> fL = new ArrayList<>();
-        for (int i = 0; i < fragmentNamesForBackStack.length; i++) {
+        for (int i = 0; i < dataModelList.size(); i++) {
 
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            Fragment mainFragment = createFragment(fragmentNamesForBackStack[i], data);
-            fL.add(mainFragment);
+
+            Fragment mainFragment = createFragment(dataModelList.get(i).getFragmentNameForBackStack(),
+                                                   dataModelList.get(i).getData());
 
             if (mainFragment != null) {
 
@@ -84,7 +85,7 @@ abstract public class NavigationManager implements INavigationManager {
                 }
 
                 fragmentTransaction.add(mainFrameLayoutId, mainFragment);
-                fragmentTransaction.addToBackStack(fragmentNamesForBackStack[i]);
+                fragmentTransaction.addToBackStack(dataModelList.get(i).getFragmentNameForBackStack());
                 fragmentTransaction.commit();
 
                 if (!useAddTransaction) {

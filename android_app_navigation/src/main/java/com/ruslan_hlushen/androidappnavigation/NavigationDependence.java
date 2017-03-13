@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import com.ruslan_hlushen.androidappnavigation.messages_manager.IMessagesManager;
 import com.ruslan_hlushen.androidappnavigation.navigation_manager.INavigationManager;
 
+import java.util.List;
+
 /**
  * Created by Ruslan on 05.03.2017.
  */
@@ -24,7 +26,7 @@ public class NavigationDependence {
             public void startFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction) { }
 
             @Override
-            public void startFragmentWithBackStack(Object data, boolean useAddTransaction, String... fragmentNamesForBackStack) { }
+            public void startFragmentWithBackStack(List<DataModel> dataModelList, boolean useAddTransaction) { }
 
             @Override
             public void startFragmentWithBackStackPosition(String fragmentNameForBackStack,

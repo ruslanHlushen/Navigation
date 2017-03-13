@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.ruslan_hlushen.androidappnavigation.DataModel;
 import com.ruslan_hlushen.androidappnavigation.NavigationDependence;
 import com.ruslan_hlushen.androidappnavigation.messages_manager.MessagesManager;
 import com.ruslan_hlushen.androidappnavigation.navigation_manager.INavigationManager;
@@ -14,6 +15,9 @@ import com.ruslan_hlushen.navigation.fragments.FragmentB;
 import com.ruslan_hlushen.navigation.fragments.FragmentC;
 import com.ruslan_hlushen.navigation.fragments.FragmentD;
 import com.ruslan_hlushen.navigation.fragments.FragmentF;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -37,7 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
         iNavigationManager = navigationDependence.getINavigationManager();
 
-        iNavigationManager.startFragmentWithBackStack(null, true, FragmentA.TAG, FragmentB.TAG, FragmentC.TAG);
+        List<DataModel> dataModels = new ArrayList<>();
+        dataModels.add(new DataModel(FragmentA.TAG, null));
+        dataModels.add(new DataModel(FragmentB.TAG, null));
+        dataModels.add(new DataModel(FragmentC.TAG, null));
+
+        iNavigationManager.startFragmentWithBackStack(dataModels, false);
     }
 
 

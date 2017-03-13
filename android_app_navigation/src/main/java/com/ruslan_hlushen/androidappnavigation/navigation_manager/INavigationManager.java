@@ -1,10 +1,14 @@
 package com.ruslan_hlushen.androidappnavigation.navigation_manager;
 
+import com.ruslan_hlushen.androidappnavigation.DataModel;
+
+import java.util.List;
+
 public interface INavigationManager extends IFragmentInfoManager {
 
     void startFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction);
 
-    void startFragmentWithBackStack(Object data, boolean useAddTransaction, String... fragmentNamesForBackStack);
+    void startFragmentWithBackStack(List<DataModel> dataModelList, boolean useAddTransaction);
 
     void startFragmentWithBackStackPosition(String fragmentNameForBackStack, int position, Object data, boolean useAddTransaction);
 
