@@ -116,10 +116,7 @@ abstract public class NavigationManager implements INavigationManager {
         }
 
         if (clearBackStackIfWouldntFind && (!wasFind)) {
-
-            for (int j = 0; j < fragmentManager.getBackStackEntryCount(); j++) {
-                fragmentManager.popBackStack();
-            }
+            clearBackStack();
         }
 
         startFragment(fragmentNameForBackStack, data, useAddTransaction);
@@ -142,18 +139,17 @@ abstract public class NavigationManager implements INavigationManager {
                 if (i - 1 >= 0) {
                     String fragmentNameToSetAfter = fragmentManager.getBackStackEntryAt(i - 1).getName();
                     fragmentManager.popBackStack(fragmentNameToSetAfter, 0);
-                    wasFind = true;
+                } else {
+                    clearBackStack();
                 }
 
+                wasFind = true;
                 break;
             }
         }
 
         if (clearBackStackIfWouldntFind && (!wasFind)) {
-
-            for (int j = 0; j < fragmentManager.getBackStackEntryCount(); j++) {
-                fragmentManager.popBackStack();
-            }
+            clearBackStack();
         }
 
         startFragment(fragmentNameForBackStack, data, useAddTransaction);
@@ -237,5 +233,13 @@ abstract public class NavigationManager implements INavigationManager {
     public boolean isFragmentCurrent(String fragmentNameForBackStack) {
 
         return fragmentNameForBackStack.equals(getCurrentFragmentBackStackName());
+    }
+
+
+    private void clearBackStack() {
+
+        for (int j = 0; j < fragmentManager.getBackStackEntryCount(); j++) {
+            fragmentManager.popBackStack();
+        }
     }
 }
