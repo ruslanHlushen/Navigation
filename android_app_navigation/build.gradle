@@ -35,7 +35,7 @@ publish {
     userOrg = 'ruslanhlushen0808'
     groupId = 'com.github.ruslanHlushen'
     artifactId = 'android_app_navigation'
-    publishVersion = '0.0.4'
+    publishVersion = '0.0.5'
     desc = 'Library for better android navigation in app with fagments.'
     website = 'https://github.com/ruslanHlushen/Navigation'
 }
