@@ -35,12 +35,12 @@ void startFragmentWithBackStack(List<DataModel> dataModelList, boolean useAddTra
                                   Object data,
                                   boolean useAddTransaction);</h2>
                                   
-Works like previous method, but set at position instead of fragment with fragmentNameToSetBefore name in backStack.
-<h2>void startFragmentAndSetBefore(String fragmentNameForBackStack,
-                                   String fragmentNameToSetBefore,
-                                   boolean clearBackStackIfWouldntFind,
-                                   Object data,
-                                   boolean useAddTransaction);</h2>
+Works like previous method, but set at position instead of fragment with fragmentNameToSetInstead name in backStack.
+<h2>void startFragmentAndSetInstead(String fragmentNameForBackStack,
+                                    String fragmentNameToSetInstead,
+                                    boolean clearBackStackIfWouldntFind,
+                                    Object data,
+                                    boolean useAddTransaction);</h2>
 
  Remove previous fragment of backStack, and set instead of it fragment that you want.
 <h2>void changeOnlyCurrentFragment(String fragmentNameForBackStack, Object data, boolean useAddTransaction);</h2>
