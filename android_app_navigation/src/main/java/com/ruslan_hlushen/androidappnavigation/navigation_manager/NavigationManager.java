@@ -54,10 +54,10 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     @Override
-    public void startFragmentWithBackStackPosition(String fragmentNameForBackStack,
-                                                   int position,
-                                                   Object data,
-                                                   boolean useAddTransaction) {
+    public void startFragmentAndSetAtBackStackPosition(String fragmentNameForBackStack,
+                                                       int position,
+                                                       Object data,
+                                                       boolean useAddTransaction) {
 
         for (int i = fragmentManager.getBackStackEntryCount() - 1; i >= position; i--) {
 
@@ -97,11 +97,11 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     @Override
-    public void startFragmentAfter(String fragmentNameForBackStack,
-                                   String fragmentNameToSetAfter,
-                                   boolean clearBackStackIfWouldntFind,
-                                   Object data,
-                                   boolean useAddTransaction) {
+    public void startFragmentAndSetAfter(String fragmentNameForBackStack,
+                                         String fragmentNameToSetAfter,
+                                         boolean clearBackStackIfWouldntFind,
+                                         Object data,
+                                         boolean useAddTransaction) {
 
         boolean wasFind = false;
 
@@ -127,11 +127,11 @@ abstract public class NavigationManager implements INavigationManager {
 
 
     @Override
-    public void startFragmentBefore(String fragmentNameForBackStack,
-                                    String fragmentNameToSetBefore,
-                                    boolean clearBackStackIfWouldntFind,
-                                    Object data,
-                                    boolean useAddTransaction) {
+    public void startFragmentAndSetBefore(String fragmentNameForBackStack,
+                                          String fragmentNameToSetBefore,
+                                          boolean clearBackStackIfWouldntFind,
+                                          Object data,
+                                          boolean useAddTransaction) {
 
         boolean wasFind = false;
 

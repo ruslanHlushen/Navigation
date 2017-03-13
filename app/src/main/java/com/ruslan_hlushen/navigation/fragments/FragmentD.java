@@ -60,6 +60,6 @@ public class FragmentD extends Fragment {
 
     private void setOnClickListeners() {
 
-        textView.setOnClickListener(v -> iNavigationManager.startFragmentAfter(FragmentF.TAG, FragmentA.TAG, true, null, true));
+        textView.setOnClickListener(v -> iNavigationManager.startFragmentAndSetAfter(FragmentF.TAG, FragmentA.TAG, true, null, true));
     }
 }
