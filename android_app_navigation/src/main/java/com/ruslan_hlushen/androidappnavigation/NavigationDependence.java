@@ -77,6 +77,9 @@ public class NavigationDependence {
             public boolean isFragmentCurrent(String fragmentNameForBackStack) {
                 return false;
             }
+
+            @Override
+            public boolean isFragmentInBackStack(String fragmentNameForBackStack) { return false; }
         };
 
         iMessagesManager = new IMessagesManager() {

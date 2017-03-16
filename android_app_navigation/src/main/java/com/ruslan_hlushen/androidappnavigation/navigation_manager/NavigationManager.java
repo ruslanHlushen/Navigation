@@ -190,11 +190,10 @@ abstract public class NavigationManager implements INavigationManager {
             if (fragmentNameForBackStack.equals(fragmentManager.getBackStackEntryAt(i).getName())) {
 
                 fragmentManager.popBackStackImmediate(fragmentNameForBackStack, 0);
+                fragmentManager.executePendingTransactions();
                 break;
             }
         }
-
-        fragmentManager.executePendingTransactions();
     }
 
 
@@ -233,6 +232,20 @@ abstract public class NavigationManager implements INavigationManager {
     public boolean isFragmentCurrent(String fragmentNameForBackStack) {
 
         return fragmentNameForBackStack.equals(getCurrentFragmentBackStackName());
+    }
+
+
+    @Override
+    public boolean isFragmentInBackStack(String fragmentNameForBackStack) {
+
+        for (int i = 0; i < fragmentManager.getBackStackEntryCount(); i++) {
+
+            if (fragmentNameForBackStack.equals(fragmentManager.getBackStackEntryAt(i).getName())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 

@@ -13,4 +13,6 @@ public interface IFragmentInfoManager {
     String getCurrentFragmentBackStackName();
 
     boolean isFragmentCurrent(String fragmentNameForBackStack);
+
+    boolean isFragmentInBackStack(String fragmentNameForBackStack);
 }

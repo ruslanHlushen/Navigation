@@ -3,6 +3,7 @@ package com.ruslan_hlushen.navigation;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.ruslan_hlushen.androidappnavigation.DataModel;
@@ -75,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public Fragment createFragment(String fragmentNameForBackStack, Object data) {
 
+                info();
+
                 switch (fragmentNameForBackStack) {
 
                     case FragmentA.TAG: {
@@ -109,5 +112,20 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
             }
         };
+    }
+
+    private void info() {
+
+        List<String> listNames = new ArrayList<>();
+        listNames.add(FragmentA.TAG);
+        listNames.add(FragmentB.TAG);
+        listNames.add(FragmentC.TAG);
+        listNames.add(FragmentD.TAG);
+        listNames.add(FragmentF.TAG);
+
+        for (int i = 0; i < listNames.size(); i++) {
+            Log.d("fragmentContainer",
+                  String.valueOf(listNames.get(i) + iNavigationManager.isFragmentInBackStack(listNames.get(i))));
+        }
     }
 }
