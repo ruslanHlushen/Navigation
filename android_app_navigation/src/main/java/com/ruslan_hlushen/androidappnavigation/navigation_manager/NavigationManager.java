@@ -48,7 +48,7 @@ abstract public class NavigationManager implements INavigationManager {
             }
 
             fragmentTransaction.addToBackStack(fragmentNameForBackStack);
-            fragmentTransaction.commit();
+            fragmentTransaction.commitAllowingStateLoss();
         }
     }
 
